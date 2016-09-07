@@ -8,7 +8,7 @@ screenshotPath=/mnt/sdcard/Robotium-Screenshots
 echo remove report and screenshot from last build and crash.txt
 adb shell rm -r $junitReportPath/*
 adb shell rm -r $screenshotPath/*
-adb shell rm -r $testautoRootPath/crash.txt
+adb shell rm -r $testautoRootPath/*
 
 echo "uninstall APK and Test APK"
 adb uninstall com.example.todolist
@@ -26,7 +26,7 @@ crashCount=0
 while [ $loop == "true" ]
 do
 adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report_${crashCount}.xml -e regenerateTestsuite $regenerateTestsuite com.example.todolist.test/com.example.todolist.test.runners.Runner1
-adb pull $junitReportPath/junit-report_${crashCount}.xml
+adb pull $junitReportPath/
 adb pull  $testautoRootPath/
 
 if [ -f $WORKSPACE/crash.txt ];then
@@ -42,5 +42,5 @@ done
 echo "pull screenshots"
 adb pull $screenshotPath/
 
-echo "merge xml files"
-java -jar app/src/androidTest/merger.jar
+#echo "merge xml files"
+#java -jar app/src/androidTest/merger.jar
