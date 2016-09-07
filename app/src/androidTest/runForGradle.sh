@@ -5,7 +5,7 @@ adb  uninstall com.example.todolist.test
 
 echo "install APK and Test APK"
 adb install app/build/outputs/apk/app-debug.apk
-adb install app/build/outputs/apk/app-debug-test-unaligned.apk
+adb install app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
 echo "start to run test"
 adb shell am instrument -w -e reportDir /mnt/sdcard -e reportFile junit-report.xml com.example.todolist.test/com.example.todolist.test.runners.Runner1
