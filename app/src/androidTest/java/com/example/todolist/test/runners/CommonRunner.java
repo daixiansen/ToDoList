@@ -1,5 +1,12 @@
 package com.example.todolist.test.runners;
 
+import android.os.Bundle;
+import android.os.Environment;
+
+import com.zutubi.android.junitreport.JUnitReportTestRunner;
+
+import junit.framework.TestSuite;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,12 +14,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import junit.framework.TestSuite;
-import android.os.Bundle;
-import android.os.Environment;
-
-import com.zutubi.android.junitreport.JUnitReportTestRunner;
 
 public class CommonRunner extends JUnitReportTestRunner {
 	private static final String REGENERATE_TESTSUITE = "regenerateTestsuite";
@@ -30,6 +31,12 @@ public class CommonRunner extends JUnitReportTestRunner {
 		super.onCreate(arguments);
 	}
 
+
+    /**
+     * 用于获取当前Runner的所有用例名的方法
+     * @param testSuite
+     * @return
+     */
 	public static List<String> getCaseNameList(TestSuite testSuite) {
 		List<String> caseNameList = new ArrayList<String>();
 		for (int i = 0; i < testSuite.testCount(); i++) {
@@ -47,6 +54,7 @@ public class CommonRunner extends JUnitReportTestRunner {
 
 	  /**
      * regenerate test suite from the next one of crash case
+       * 获取还未运行过的用例集
      * @param caseNameList
      * @return
      */
@@ -69,7 +77,12 @@ public class CommonRunner extends JUnitReportTestRunner {
         }
         return testSuite;
     }
-    
+
+
+    /**
+     * 获取发生crash的用例名
+     * @return
+     */
     private String getCrashCaseName(){
         String caseName = "";
         FileReader crashFileReader = null;
