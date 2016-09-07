@@ -26,7 +26,8 @@ crashCount=0
 while [ $loop == "true" ]
 do
 adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report_${crashCount}.xml -e regenerateTestsuite $regenerateTestsuite com.example.todolist.test/com.example.todolist.test.runners.Runner1
-adb pull  $testautoRootPath/crash.txt $WORKSPACE
+adb pull $junitReportPath/junit-report_${crashCount}.xml
+adb pull  $testautoRootPath/crash.txt
 
 if [ -f $WORKSPACE/crash.txt ];then
      echo "crash  happen "
@@ -39,4 +40,4 @@ if [ -f $WORKSPACE/crash.txt ];then
 done
 
 echo "pull screenshots"
-adb pull $screenshotPath/ $WORKSPACE/
+adb pull $screenshotPath/
