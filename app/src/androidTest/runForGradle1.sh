@@ -24,5 +24,9 @@ adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-rep
 echo "pull junit report"
 adb pull $junitReportPath/junit-report.xml
 
+echo "pull crash.txt"
+adb pull  $testautoRootPath/
+
+
 echo "pull screenshots"
 adb pull $screenshotPath/
