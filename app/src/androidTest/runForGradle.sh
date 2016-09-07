@@ -25,7 +25,7 @@ regenerateTestsuite=false
 crashCount=0
 while [ $loop == "true" ]
 do
-adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report_${crashCount}.xml -e regenerateTestsuite $regenerateTestsuite com.example.todolist.test/com.example.todolist.test.runners.Runner1
+adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report_${crashCount}.xml com.example.todolist.test/com.example.todolist.test.runners.Runner1
 adb pull $junitReportPath/
 adb pull  $testautoRootPath/
 
