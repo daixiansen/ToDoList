@@ -1,9 +1,12 @@
 package com.example.todolist.test.testcases;
 
-import java.io.File;
-
 import com.example.todolist.test.BasicTestCase;
 
+import java.io.File;
+
+/**
+ * 用来删除 crash.txt 文件
+ */
 public class LatestTest extends BasicTestCase {
 
 	@Override
