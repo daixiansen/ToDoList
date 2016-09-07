@@ -8,6 +8,7 @@ screenshotPath=/mnt/sdcard/Robotium-Screenshots
 echo remove report and screenshot from last build and crash.txt
 adb shell rm -r $junitReportPath/*
 adb shell rm -r $screenshotPath/*
+adb shell rm -r $testautoRootPath/*
 
 echo "uninstall APK and Test APK"
 adb  uninstall com.example.todolist
