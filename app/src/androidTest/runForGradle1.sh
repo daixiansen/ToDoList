@@ -3,6 +3,8 @@
 #define root folder for testauto
 testautoRootPath=/mnt/sdcard/testauto
 junitReportPath=$testautoRootPath/junit
+junitReportPath_xml=$junitReportPath/junit-report.xml
+#默认截图地址
 screenshotPath=/mnt/sdcard/Robotium-Screenshots
 
 echo remove report and screenshot from last build and crash.txt
@@ -22,11 +24,19 @@ echo "start to run test"
 adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report.xml com.example.todolist.test/com.example.todolist.test.runners.Runner1
  
 echo "pull junit report"
-adb pull $junitReportPath/junit-report.xml
+if [ ! -d "$junitReportPath_xml" ]; then
+  adb pull $junitReportPath/junit-report.xml
+fi
 
 echo "pull crash.txt"
-adb pull  $testautoRootPath/
-
+if [ ! -d "$testautoRootPath" ]; then
+  adb pull  $testautoRootPath/
+fi
 
 echo "pull screenshots"
-adb pull $screenshotPath/
+# -d 参数判断 $folder 是否存在
+
+if [ -d "$screenshotPath" ]; then
+  adb pull $screenshotPath/
+fi
+

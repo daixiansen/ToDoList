@@ -18,7 +18,11 @@ public class Login_1 extends BasicTestCase {
 		//点击登录按钮
 		uiHelper.getElementsLoginActivity().clickLoginButton();
 		//点击登录按钮
-		assertTrue("错误提示信息没有出现,可能出现BUG.",uiHelper.getSolo().searchText("用户名或者密码错误！", true));
+		assertFalse("错误提示信息没有出现,可能出现BUG.",uiHelper.getSolo().searchText("用户名或者密码错误！", true));
 	}
 
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
 }

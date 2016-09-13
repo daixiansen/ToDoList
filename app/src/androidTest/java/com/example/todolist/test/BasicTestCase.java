@@ -1,9 +1,5 @@
 package com.example.todolist.test;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import android.os.Environment;
 import android.os.PowerManager;
 import android.test.ActivityInstrumentationTestCase2;
@@ -12,6 +8,11 @@ import com.example.todolist.LoginActivity;
 import com.example.todolist.test.utils.NetworkUtil;
 import com.example.todolist.test.utils.Util;
 import com.robotium.solo.Solo;
+import com.squareup.spoon.Spoon;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 abstract public class BasicTestCase extends
 		ActivityInstrumentationTestCase2<LoginActivity> {
@@ -36,7 +37,9 @@ abstract public class BasicTestCase extends
 			super.setUp();
 			init();
 		} catch (Throwable tr) {
+            // 截图
 			solo.takeScreenshot(this.getClass().getSimpleName());
+            Spoon.screenshot(solo.getCurrentActivity(),this.getClass().getSimpleName());
 			throw new SetUpException(tr);
 		}
 	}

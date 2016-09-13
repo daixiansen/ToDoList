@@ -21,7 +21,7 @@ public class TestCase1_Old extends ActivityInstrumentationTestCase2<LoginActivit
 
 	public void testTestCase1() {
 		//在用户名输入框输入abcdef
-		solo.enterText(0, "abcdef");;
+		solo.enterText(0, "abcdef");
 		//子密码卡输入123456
 		solo.enterText(1, "12345678");
 		//点击登录按钮

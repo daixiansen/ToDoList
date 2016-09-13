@@ -1,10 +1,10 @@
 package com.example.todolist.test.runners;
 
-import junit.framework.TestSuite;
-
 import com.example.todolist.test.testcases.LatestTest;
 import com.example.todolist.test.testsuites.LoginSuite;
 import com.example.todolist.test.testsuites.ToDoListSuite;
+
+import junit.framework.TestSuite;
 
 public class Runner1 extends CommonRunner {
 
@@ -24,5 +24,4 @@ public class Runner1 extends CommonRunner {
         }
 		return suite;
 	}
-
 }
