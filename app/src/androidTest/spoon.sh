@@ -25,6 +25,9 @@ echo "start to run test"
 
 java -jar spoon-runner-1.7.0-jar-with-dependencies.jar --apk app/build/outputs/apk/app-debug.apk --test-apk app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
+
+cp -r spoon-output /cygdrive/c/Users/daixiansen/.jenkins/userContent/
+
 cho "pull junit report"
 #adb pull $junitReportPath/junit-report.xml
 #
