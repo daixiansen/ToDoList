@@ -31,22 +31,3 @@ adb pull  $testautoRootPath/
 
 echo "pull screenshots"
 adb pull $screenshotPath/
-
-
-#echo "pull junit report"
-#if [ -d "$junitReportPath_xml" ]; then
-
-#fi
-#
-#echo "pull crash.txt"
-#if [ -d "$testautoRootPath" ]; then
-#  adb pull  $testautoRootPath/
-#fi
-#
-#echo "pull screenshots"
-## -d 参数判断 $folder 是否存在
-#
-#if [ -d "$screenshotPath" ]; then
-#  adb pull $screenshotPath/
-#fi
-

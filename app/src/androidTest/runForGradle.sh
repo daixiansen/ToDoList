@@ -1,5 +1,4 @@
 #!/bin/sh
-
 #define root folder for testauto
 testautoRootPath=/mnt/sdcard/testauto
 junitReportPath=$testautoRootPath/junit
@@ -11,14 +10,13 @@ adb shell rm -r $screenshotPath/*
 adb shell rm -r $testautoRootPath/*
 
 echo "uninstall APK and Test APK"
-adb uninstall com.example.todolist
-adb uninstall com.example.todolist.test
+#adb uninstall com.example.todolist
+#adb uninstall com.example.todolist.test
 
 echo "install APK and Test APK"
 adb install app/build/outputs/apk/app-debug.apk
 adb install app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
-#
 echo "start to run test"
 loop=true
 regenerateTestsuite=false
@@ -29,9 +27,10 @@ adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-rep
 adb pull $junitReportPath/
 adb pull  $testautoRootPath/
 
-if [ -f $WORKSPACE/crash.txt ];then
+if [ -f testautoRootPath/crash.txt ];then
      echo "crash  happen "
-	 /usr/bin/rm -f $WORKSPACE/crash.txt
+     /usr/bin/cat testautoRootPath\\ crash.txt >> totalCrash.txt
+	 /usr/bin/rm -f testautoRootPath/crash.txt
      regenerateTestsuite=true
 	((crashCount=$crashCount+1))
   else
