@@ -22,21 +22,31 @@ adb install app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
 echo "start to run test"
 adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report.xml com.example.todolist.test/com.example.todolist.test.runners.Runner1
- 
+
 echo "pull junit report"
-if [ ! -d "$junitReportPath_xml" ]; then
-  adb pull $junitReportPath/junit-report.xml
-fi
+adb pull $junitReportPath/junit-report.xml
 
 echo "pull crash.txt"
-if [ ! -d "$testautoRootPath" ]; then
-  adb pull  $testautoRootPath/
-fi
+adb pull  $testautoRootPath/
 
 echo "pull screenshots"
-# -d 参数判断 $folder 是否存在
+adb pull $screenshotPath/
 
-if [ -d "$screenshotPath" ]; then
-  adb pull $screenshotPath/
-fi
+
+#echo "pull junit report"
+#if [ -d "$junitReportPath_xml" ]; then
+
+#fi
+#
+#echo "pull crash.txt"
+#if [ -d "$testautoRootPath" ]; then
+#  adb pull  $testautoRootPath/
+#fi
+#
+#echo "pull screenshots"
+## -d 参数判断 $folder 是否存在
+#
+#if [ -d "$screenshotPath" ]; then
+#  adb pull $screenshotPath/
+#fi
 
