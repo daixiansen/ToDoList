@@ -30,6 +30,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     androidTestCompile files('src/androidTest/libs/robotium-solo-5.2.1.jar')
     androidTestCompile files('src/androidTest/libs/android-junit-report-1.5.8.jar')
+    androidTestCompile files('src/androidTest/libs/spoon-client-1.7.0.jar')
     androidTestCompile 'junit:junit:4.12'
-    androidTestCompile 'com.squareup.spoon:spoon-client:1.1.8'
+//    androidTestCompile 'com.squareup.spoon:spoon-client:1.1.8'
 }

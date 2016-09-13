@@ -116,6 +116,7 @@ abstract public class BasicTestCase extends
 			super.runTest();
 		} catch (Throwable th) {
 			solo.takeScreenshot(this.getClass().getSimpleName());
+            Spoon.screenshot(solo.getCurrentActivity(),"shot");
 			throw new RunTestException(th);
 		}
 	}

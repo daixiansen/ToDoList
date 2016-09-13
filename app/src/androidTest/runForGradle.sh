@@ -27,10 +27,10 @@ adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-rep
 adb pull $junitReportPath/
 adb pull  $testautoRootPath/
 
-if [ -f testautoRootPath/crash.txt ];then
+if [ -f $WORKSPACE/crash.txt ];then
      echo "crash  happen "
-     /usr/bin/cat testautoRootPath\\ crash.txt >> totalCrash.txt
-	 /usr/bin/rm -f testautoRootPath/crash.txt
+     /usr/bin/cat $WORKSPACE\\ crash.txt >> totalCrash.txt
+	 /usr/bin/rm -f $WORKSPACE/crash.txt
      regenerateTestsuite=true
 	((crashCount=$crashCount+1))
   else
