@@ -10,8 +10,8 @@ adb shell rm -r $screenshotPath/*
 adb shell rm -r $testautoRootPath/*
 
 echo "uninstall APK and Test APK"
-#adb uninstall com.example.todolist
-#adb uninstall com.example.todolist.test
+adb uninstall com.example.todolist
+adb uninstall com.example.todolist.test
 
 echo "install APK and Test APK"
 adb install app/build/outputs/apk/app-debug.apk
