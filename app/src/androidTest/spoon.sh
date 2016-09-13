@@ -22,6 +22,7 @@ adb install app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
 echo "start to run test"
 #adb shell am instrument -w -e reportDir $junitReportPath -e reportFile junit-report.xml com.example.todolist.test/com.example.todolist.test.runners.Runner1
+
 java -jar spoon-runner-1.7.0-jar-with-dependencies.jar --apk app/build/outputs/apk/app-debug.apk --test-apk app/build/outputs/apk/app-debug-androidTest-unaligned.apk
 
 cho "pull junit report"
